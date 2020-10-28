@@ -48,7 +48,7 @@ class IndexView(generic.ListView):
     ]
 
     earnings_monthly = '$40.000'
-    earnings_annual = '$215.000'
+    earnings_annual = '$250.000'
     task_percent = '75%'
     pending_requests = 18
 
