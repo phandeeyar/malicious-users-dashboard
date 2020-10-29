@@ -12,7 +12,7 @@
 
 # C extensions
 *.so
-
+*.log
 # Distribution / packaging
 .Python
 env/

@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from dashboard.apps.core.models import DataWindow
+from dashboard.apps.core.models import DataWindow, MaliciousUser, WordCloud
 
 
 class DataWindowResource(resources.ModelResource):
@@ -17,3 +17,5 @@ class DataWindowAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(DataWindow, DataWindowAdmin)
+admin.site.register(MaliciousUser)
+admin.site.register(WordCloud)

@@ -3,7 +3,7 @@ from django.views import generic
 
 from datetime import date, timedelta
 from dashboard.apps.core.utils import log
-from dashboard.apps.core.models import DataWindow, MaliciousUsers
+from dashboard.apps.core.models import DataWindow, MaliciousUser
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.serializers import serialize
 
@@ -65,7 +65,7 @@ class IndexView(generic.ListView):
 	def get_malicious_users(self):
 		start_date = self.request.GET.get("start_date", date.today() - timedelta(days=7))
 		end_date = self.request.GET.get("end_date", date.today())
-		return MaliciousUsers.objects.filter(date__gte=start_date, date__lte=end_date)
+		return MaliciousUser.objects.filter(date__gte=start_date, date__lte=end_date)
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)

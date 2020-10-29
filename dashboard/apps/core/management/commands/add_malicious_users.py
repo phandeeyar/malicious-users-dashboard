@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from dashboard.apps.core.models import MaliciousUsers
+from dashboard.apps.core.models import MaliciousUser
 import pandas as pd
 from datetime import datetime
 from django.utils import timezone
@@ -10,7 +10,7 @@ def csv_to_model(path='dashboard/apps/core/management/commands/malicioususers.cs
 	tmp_data = pd.read_csv(path, sep=',')
 	users = []
 	for index in tmp_data.index:
-		users.append(MaliciousUsers(
+		users.append(MaliciousUser(
 			user_id=tmp_data['user_id'][index],
 			hs_freq=tmp_data['hs_freq'][index],
 			postfreq=tmp_data['postfreq'][index],
@@ -23,11 +23,11 @@ def csv_to_model(path='dashboard/apps/core/management/commands/malicioususers.cs
 			malicious_score=tmp_data['malicious_score'][index],
 			date=datetime(2020, 6, 2, tzinfo=timezone.utc) # TODO: Use this once @Anna adds date column 
 		))
-	MaliciousUsers.objects.bulk_create(users)
+	MaliciousUser.objects.bulk_create(users)
 
 
 class Command(BaseCommand):
-	help = 'Displays current time'
+	help = 'Takes in malicious users from CSV and adds them to DB'
 
 	def handle(self, *args, **kwargs):
 		csv_to_model()
