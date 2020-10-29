@@ -6,7 +6,7 @@ class DataWindow(models.Model):
 	post_url = models.TextField()
 	comment_id = models.TextField()
 	reply_id = models.TextField()
-	profile_id = models.TextField()
+	profile_id = models.BigIntegerField()
 	user_name = models.TextField()
 	date = models.DateTimeField()
 	comment = models.TextField()
@@ -38,3 +38,5 @@ class DataWindow(models.Model):
 	election_topic = models.BooleanField()
 	election_topic_keyword = models.BooleanField()
 	double_comment = models.BooleanField()
+
+# DataWindow.objects.values('post_url').distinct().count() to get unique post urls
