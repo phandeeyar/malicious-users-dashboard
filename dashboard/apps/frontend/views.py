@@ -67,13 +67,15 @@ class IndexView(generic.ListView):
 		context = super().get_context_data(**kwargs)
 		queryset = self.get_queryset()
 		context['data'] = self.data
-		# Make these figures weekly
+		# TODO: Make these figures weekly
 		context['number_of_posts'] = len(queryset.distinct('post_url'))
 		context['number_of_comments'] = len(queryset)
-		context['earnings_monthly'] = self.earnings_monthly
-		context['earnings_annual'] = self.earnings_annual
-		context['task_percent'] = self.task_percent
-		context['pending_requests'] = self.pending_requests
+		try:
+			context['hate_speech_percent'] = (len(queryset.filter(hate_speech=True)) / len(queryset) * 100)
+		except ZeroDivisionError:
+			context['hate_speech_percent'] = 0
+		
+		context['num_unique_users'] = len(queryset.distinct('profile_id'))
 		context['projects'] = self.projects
 
 		# log(self.module, 'get_context_data', 'context=%r' % context, file = __file__)

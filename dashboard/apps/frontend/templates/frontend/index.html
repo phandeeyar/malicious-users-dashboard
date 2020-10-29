@@ -52,10 +52,10 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Percentage of Hate Speech Comments</div>
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
-									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ task_percent }}</div>
+									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ hate_speech_percent | floatformat }}</div>
 								</div>
 								<div class="col">
 									<div class="progress progress-sm mr-2">
@@ -86,9 +86,9 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
 							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-								Pending Requests
+								Number of Unique Users
 							</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">{{ pending_requests }}</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_unique_users }}</div>
 						</div>
 						<div class="col-auto">
 							<i class="fas fa-comments fa-2x text-gray-300"></i>

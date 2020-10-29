@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 # Create your models here.
@@ -39,4 +40,19 @@ class DataWindow(models.Model):
 	election_topic_keyword = models.BooleanField()
 	double_comment = models.BooleanField()
 
-# DataWindow.objects.values('post_url').distinct().count() to get unique post urls
+
+class MaliciousUsers(models.Model):
+	user_id = models.CharField(max_length=200)
+	hs_freq = models.IntegerField()
+	postfreq = models.IntegerField()
+	hsratio = models.IntegerField()
+	av_overperforming = models.IntegerField()
+	degree_centrality = models.IntegerField()
+	betweenness_centrality = models.IntegerField()
+	eigenvector_centrality = models.IntegerField()
+	pagerank = models.IntegerField()
+	malicious_score = models.IntegerField()
+	date = models.DateTimeField(
+		default=datetime(2020, 6, 1)
+		# TODO: Change this to be now, did this to make it in sync with the rest of the data
+	)
