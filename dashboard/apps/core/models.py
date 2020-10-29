@@ -42,6 +42,12 @@ class DataWindow(models.Model):
 
 
 class MaliciousUsers(models.Model):
+	class Meta:
+		indexes = [
+			models.Index(fields=['user_id', 'hs_freq', 'malicious_score']),
+			models.Index(fields=['user_id'], name='user_id_idx'),
+			models.Index(fields=['malicious_score'], name='malicious_score_idx'),
+		]
 	user_id = models.CharField(max_length=200)
 	hs_freq = models.IntegerField()
 	postfreq = models.IntegerField()
