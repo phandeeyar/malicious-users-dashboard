@@ -39,7 +39,7 @@ class DataWindow(models.Model):
 	election_topic = models.BooleanField()
 	election_topic_keyword = models.BooleanField()
 	double_comment = models.BooleanField()
-	
+
 	def __str__(self):
 		return 'Comment ID: {comment_id} by {user_id}'.format(comment_id=self.comment_id, user_id=self.user_id)
 
@@ -66,7 +66,7 @@ class MaliciousUser(models.Model):
 		default=datetime(2020, 6, 1)
 		# TODO: Change this to be now, did this to make it in sync with the rest of the data
 	)
-	
+
 	def __str__(self):
 		return self.user_id
 
@@ -81,3 +81,23 @@ class WordCloud(models.Model):
 
 	def __str__(self):
 		return 'Word: {word} for dates: {date}'.format(word=self.word, date=self.date)
+
+
+class TargetGroup(models.Model):
+	group = models.CharField(max_length=100)
+	count = models.IntegerField()
+	percentage = models.DecimalField(
+		decimal_places=6,
+		max_digits=10
+	)
+	date = models.DateTimeField(
+		default=datetime(2020, 6, 1, tzinfo=timezone.utc)
+		# TODO: Change this to be now, did this to make it in sync with the rest of the data
+	)
+
+	def __str__(self):
+		return 'Group: {group} was mentioned {count} times during dates: {date} '.format(
+			group=self.group,
+			date=self.date,
+			count=self.count
+		)

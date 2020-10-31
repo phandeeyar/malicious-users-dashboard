@@ -13,13 +13,14 @@
 
 		<!-- Content Row -->
 		<div class="row">
-			<!-- Earnings (Monthly) Card Example -->
 			<div class="col-xl-3 col-md-6 mb-4">
 				<div class="card border-left-primary shadow h-100 py-2">
 					<div class="card-body">
 						<div class="row no-gutters align-items-center">
 							<div class="col mr-2">
-								<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Number of Posts In The Week</div>
+								<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Number of
+									Posts In The Week
+								</div>
 								<div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_of_posts }}</div>
 							</div>
 							<div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
@@ -28,13 +29,15 @@
 				</div>
 			</div>
 
-			<!-- Earnings (Monthly) Card Example -->
+			<!--Number Of Comments in Selected Date Range Card-->
 			<div class="col-xl-3 col-md-6 mb-4">
 				<div class="card border-left-success shadow h-100 py-2">
 					<div class="card-body">
 						<div class="row no-gutters align-items-center">
 							<div class="col mr-2">
-								<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Number Of Comments in Selected Date Range</div>
+								<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Number Of
+									Comments in Selected Date Range
+								</div>
 								<div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_of_comments }}</div>
 							</div>
 							<div class="col-auto">
@@ -45,16 +48,19 @@
 				</div>
 			</div>
 
-			<!-- Earnings (Monthly) Card Example -->
+			<!-- Percentage of Hate Speech Comments Card -->
 			<div class="col-xl-3 col-md-6 mb-4">
 				<div class="card border-left-info shadow h-100 py-2">
 					<div class="card-body">
 						<div class="row no-gutters align-items-center">
 							<div class="col mr-2">
-								<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Percentage of Hate Speech Comments</div>
+								<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Percentage of Hate
+									Speech Comments
+								</div>
 								<div class="row no-gutters align-items-center">
 									<div class="col-auto">
-										<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ hate_speech_percent | floatformat }}</div>
+										<div
+											class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ hate_speech_percent | floatformat }}</div>
 									</div>
 								</div>
 							</div>
@@ -66,7 +72,7 @@
 				</div>
 			</div>
 
-			<!-- Pending Requests Card Example -->
+			<!-- Number of Unique Users Card -->
 			<div class="col-xl-3 col-md-6 mb-4">
 				<div class="card border-left-warning shadow h-100 py-2">
 					<div class="card-body">
@@ -90,9 +96,12 @@
 		<div class="row">
 			<div class="col-xl-12 col-lg-12 col-sm-12 col-md-12 col-mb-12">
 				<div class="card shadow mb-4">
-					<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Top 20 Malicious Users For The Week</h6></div>
+					<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Top 20 Malicious Users
+						For The Week</h6></div>
 					<div class="card-body">
-						<div class="chart-bar"><canvas id="maliciousUsersChart"></canvas></div>
+						<div class="chart-bar">
+							<canvas id="maliciousUsersChart"></canvas>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -106,36 +115,22 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-xl-6 col-lg-6">
-				<div class="card shadow mb-4">
-					<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Area</h6></div>
-					<div class="card-body">
-						<div class="chart-area"><canvas id="myAreaChart"></canvas></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Content Row -->
-		<div class="row">
-			<!-- Content Column -->
 			<div class="col-lg-6 mb-4">
-				<!-- Project Card Example -->
+				<!-- Targeted Groups Card -->
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
-						<h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+						<h6 class="m-0 font-weight-bold text-primary">Targeted Groups</h6>
 					</div>
 					<div class="card-body">
-						{% for project in projects %}
-							<h4 class="small font-weight-bold">{{ project.0 }}
-								<span class="float-right">{{ project.1 }}		</span>
+						{% for project in targeted_groups_data %}
+							<h4 class="small font-weight-bold">{{ project.group }}
+								<span class="float-right">{{ project.percentage }} %</span>
 							</h4>
 							<div class="progress mb-4">
-								<div class="progress-bar {{ project.2 }}"
+								<div class="progress-bar"
 									 role="progressbar"
-									 style="width: {{ project.3}}%"  aria-valuenow="{{ project.3 }}"  aria-valuemin="0" aria-valuemax="100">
+									 style="width: {{ project.percentage }}%" aria-valuenow="{{ project.percentage }}"
+									 aria-valuemin="0" aria-valuemax="100">
 								</div>
 							</div>
 						{% endfor %}
@@ -149,15 +144,14 @@
 {% block    additional_scripts %}
 	<script type="text/javascript">
 		let top20MostMaliciousUsers = {{ top_20_malicious_users | safe }}
-			top20MostMaliciousUsers = top20MostMaliciousUsers.map((user) => user.fields)
+			top20MostMaliciousUsers = top20MostMaliciousUsers.map((user) => user.fields);
 		let word_cloud_data = {{ word_cloud_data | safe }}
-			word_cloud_data = word_cloud_data.map((word_data) => word_data.fields)
+			word_cloud_data = word_cloud_data.map((word_data) => word_data.fields);
 	</script>
 	{# Contains cloud config #}
 	<script src="{% static 'vendor/sb-admin-2/js/demo/cloud.js' %}"></script>
 	{# Wordcloud Data	#}
 	<script src="{% static 'vendor/sb-admin-2/js/demo/wordcloud.js' %}"></script>
-	<script src="{% static 'vendor/sb-admin-2/js/demo/chart/area.js' %}"></script>
 	<script src="{% static 'vendor/sb-admin-2/js/demo/chart/bar.js' %}"></script>
 	<script src="{% static 'vendor/sb-admin-2/js/demo/chart/pie.js' %}"></script>
 {% endblock additional_scripts %}

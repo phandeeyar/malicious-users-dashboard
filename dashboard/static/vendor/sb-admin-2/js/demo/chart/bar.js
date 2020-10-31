@@ -1,3 +1,4 @@
+'use strict'
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
@@ -58,7 +59,7 @@ const chartConfig = {
     legend: {
       display: false
     },
-  	onClick: graphClickEvent,
+  	onClick: barChartEventClick,
     tooltips: {
       titleMarginBottom: 10,
       titleFontColor: '#6e707e',
@@ -81,7 +82,7 @@ const chartConfig = {
 }
 const myBarChart = new Chart(domElement, chartConfig);
 
-function graphClickEvent(event, array){
+function barChartEventClick(event){
 	const activeElement = myBarChart.getElementAtEvent(event);
 	const [lastItem] = chartConfig.data.labels[activeElement[0]._index].split(" ").slice(-1)
 	//	https://stackoverflow.com/a/37123117
