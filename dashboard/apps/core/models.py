@@ -18,7 +18,7 @@ class DataWindow(models.Model):
 	hate_speech = models.BooleanField()
 	page_name = models.TextField()
 	page_user_name = models.TextField()
-	page_likes_at_posting = models.TextField()
+	page_likes_at_posting = models.IntegerField()
 	media_type = models.TextField()
 	post_likes = models.TextField()
 	comments = models.TextField()

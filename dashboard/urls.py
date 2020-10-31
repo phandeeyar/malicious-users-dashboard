@@ -9,6 +9,7 @@ app_name = 'main'
 
 urlpatterns = [
 	path('', include('dashboard.apps.urls')),
-	url(r'^accounts/login/$', auth_views.LoginView.as_view(template_name='login/login.html')),
+	url(r'^accounts/login/$', auth_views.LoginView.as_view(template_name='login/login.html'), name='login_url'),
+	url(r'^accounts/logout/$', auth_views.LogoutView.as_view(), name='logout_url'),
 	path('admin/', admin.site.urls),
 ]
