@@ -95,7 +95,6 @@ INSTALLED_APPS = [
 	'dashboard.apps.pages.login',
 	'dashboard.apps.pages.pagenotfound',
 	'dashboard.apps.pages.password',
-	'dashboard.apps.pages.register',
 
 	'dashboard.apps.pages.charts',
 	'dashboard.apps.pages.tables',
