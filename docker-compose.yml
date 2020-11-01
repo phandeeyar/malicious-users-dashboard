@@ -1,18 +1,22 @@
-version: "2"
+version: "3"
 services:
     db:
+        restart: unless-stopped
         image: postgres
         environment:
             - POSTGRES_DB=postgres
             - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_PASSWORD=superdupersecretpostgrespassword
+        volumes:
+            - /data/phandeeyar:/var/lib/postgresql/data
         ports:
             - "5500:5432"
     web:
+        restart: unless-stopped
         build: .
         command: python manage.py runserver 0.0.0.0:8000
         environment:
-            - DEBUG=1
+            - DEBUG=${DEBUG}
         volumes:
             - .:/code
         ports:

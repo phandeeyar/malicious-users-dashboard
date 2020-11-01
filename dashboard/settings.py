@@ -27,6 +27,8 @@ SECRET_KEY = 'p_^jnpqsmo9u@y4vso!&3!ablvk1+=0t+n50th$_yn6bw(0u19'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 0)
+if DEBUG is not 0 or 1:
+	DEBUG = 0
 
 LOGGING = {
 	'version': 1,
@@ -145,7 +147,7 @@ DATABASES = {
 		'ENGINE': 'django.db.backends.postgresql',
 		'NAME': 'postgres',
 		'USER': 'postgres',
-		'PASSWORD': 'postgres',
+		'PASSWORD': 'superdupersecretpostgrespassword',
 		'HOST': 'db',
 		'PORT': 5432,
 	}
@@ -194,3 +196,4 @@ STATICFILES_DIRS = [
 #
 #
 print('STATICFILES_DIRS', STATICFILES_DIRS)
+print('DEBUG', DEBUG)
