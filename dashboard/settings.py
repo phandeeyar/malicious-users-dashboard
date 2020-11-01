@@ -26,8 +26,10 @@ APP_FLDR = BASE_DIR + '/' + APP_NAME
 SECRET_KEY = 'p_^jnpqsmo9u@y4vso!&3!ablvk1+=0t+n50th$_yn6bw(0u19'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 0)
-if DEBUG is not 0 or 1:
+DEBUG_STR = os.environ.get('DEBUG', 0)
+if DEBUG_STR is not "":
+	DEBUG = int(DEBUG_STR)
+else:
 	DEBUG = 0
 
 LOGGING = {
