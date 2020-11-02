@@ -44,6 +44,8 @@ class IndexView(LoginRequiredMixin, generic.base.TemplateView):
 			date_range_upper = date.today()
 		else:
 			date_range_upper = dtu
+		context["start_date"]=str(date_range_lower)
+		context["end_date"]=str(date_range_upper)
 		data_window_queryset = self.get_data_window_objects(date_range_lower, date_range_upper)
 		malicious_users_queryset = self.get_malicious_users(date_range_lower, date_range_upper)
 		context['targeted_groups_data'] = self.get_target_group_data(date_range_lower, date_range_upper)
