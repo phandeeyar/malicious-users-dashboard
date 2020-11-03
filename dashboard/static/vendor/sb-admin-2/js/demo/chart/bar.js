@@ -7,6 +7,7 @@ const fbRootURL = "https://www.facebook.com/profile.php?id="
 
 // Bar Chart
 const domElement = document.getElementById("maliciousUsersChart");
+console.log(top20MostMaliciousUsers)
 const chartConfig = {
   type: 'bar',
   data: {
@@ -74,7 +75,7 @@ const chartConfig = {
       caretPadding: 10,
       callbacks: {
         label: function(tooltipItem, chart) {
-          return chart.datasets[tooltipItem.datasetIndex].label || '';
+          return `${chart.datasets[tooltipItem.datasetIndex].label}: ${tooltipItem.value}` || '';
         }
       }
     },
@@ -84,10 +85,12 @@ const myBarChart = new Chart(domElement, chartConfig);
 
 function barChartEventClick(event){
 	const activeElement = myBarChart.getElementAtEvent(event);
-	const [lastItem] = chartConfig.data.labels[activeElement[0]._index].split(" ").slice(-1)
-	//	https://stackoverflow.com/a/37123117
-	let profileURL = fbRootURL + lastItem;
-	openInNewTab(profileURL)
+	if(activeElement[0]){
+		const [lastItem] = chartConfig.data.labels[activeElement[0]._index].split(" ").slice(-1)
+		//	Thanks to: https://stackoverflow.com/a/37123117
+		let profileURL = fbRootURL + lastItem;
+		openInNewTab(profileURL)
+	}
 }
 
 function openInNewTab(href) {
