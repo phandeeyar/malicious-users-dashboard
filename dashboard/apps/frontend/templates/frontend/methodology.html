@@ -1,0 +1,28 @@
+{% extends 'site/base.html' %}
+{% load static %}
+
+{% block title %} Phandeeyar Dashboard: Methodology {% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+	<h1 class="h3 mb-4 text-gray-800">Methodology</h1>
+<p class="mb-4">The results of the analysis are based on network modelling:
+First, according to a lexicon of common hate speech expressions in Burmese compiled by
+Phandeeyar, we labelled hate speech comments made by users on popular pages and
+groups in Myanmar. We then calculated the total number of hate speech comments a user
+made, the overall number of comments a user made and the ratio of non-hate speech
+comments to hate speech comments.
+Secondly, for each week, a network showing the interaction between users commenting on
+posts and replying to each other’s comments on these pages and groups was then created.
+We say that two users are connected if one of them has replied to the other person’s
+comment.
+Based on the connections shown in the network graph, we calculated the degree centrality
+and the PageRank of each user to see their influence in the network. Degree centrality is the
+defined as the number of connections that a user has. A more influential users that has a lot
+of other users replying to his comments will score higher in the metric than a user whose
+comments do not get a lot of attention from other users. The PageRank measure counts the
+number and quality of connections a user has and estimates the importance of that user in
+the network. Based on these two measures, we found the most central users in the network.
+The overall malicious score is a compound measure of all the measures calculated.</p>
+</div>
+{% endblock content %}

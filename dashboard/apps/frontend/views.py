@@ -86,3 +86,8 @@ class IndexView(LoginRequiredMixin, generic.base.TemplateView):
 		context['num_unique_users'] = len(data_window_queryset.distinct('profile_id'))
 
 		return context
+
+
+class MethodologyView(LoginRequiredMixin, generic.base.TemplateView):
+	module = 'MethodologyView'
+	template_name = 'frontend/methodology.html'
