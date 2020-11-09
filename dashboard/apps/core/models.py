@@ -4,6 +4,24 @@ from datetime import datetime, timezone
 
 # Create your models here.
 class DataWindow(models.Model):
+	class Meta:
+		indexes = [
+			models.Index(
+				fields=[
+					'user_id',
+					'targeted_group1',
+					'targeted_group2',
+					'targeted_group3',
+					'targeted_group4'
+				]
+			),
+			models.Index(
+				fields=[
+					'user_id'
+				]
+			),
+		]
+
 	post_url = models.TextField()
 	comment_id = models.TextField()
 	reply_id = models.TextField()
@@ -12,7 +30,9 @@ class DataWindow(models.Model):
 	date = models.DateTimeField()
 	comment = models.TextField()
 	likes = models.IntegerField()
-	user_id = models.TextField()
+	user_id = models.CharField(
+		max_length=200
+	)
 	post_type = models.TextField()
 	row_id = models.TextField()
 	hate_speech = models.BooleanField()
