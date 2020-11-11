@@ -1,0 +1,156 @@
+,label,meaning,targetted_group,type,language
+0,ထမီခြုံ,to hide under (ASSK's) htamein,NLD,Political Party,Bamar
+1,၎က်နီ,red bird,NLD,Political Party,Bamar
+2,နီပေါ,stupid red,NLD,Political Party,Bamar
+3,ကြံ့ဖွတ်,lazy and horrible,USDP,Political Party,Bamar
+4,စစ်ခွေး,dog soldier,Tatmadaw,Military,Bamar
+5,ကုလားတွေ,,Muslim,Muslim,Bamar
+6,စောင်ကုလား,,Muslim,Muslim,Bamar
+7,၇၈၆,,Muslim,Muslim,Bamar
+8,မွတ်ဒေါင်း,the muslim peacock,NLD,Political Party,Bamar
+9,ပလောင်တွေ,,Palaung,Ethnic issue,Bamar
+10,ရခီးတွေ,,Rakhine/AA,AA,Bamar
+11,ဗမာလူမျိုးစုတ်တွေ,,Bamar,Ethnic issue,Bamar
+12,ဗမာစစ်တပ်,,Tatmadaw,Military,Bamar
+13,သူပုန်,,Kachin,Ethnic issue,Bamar
+14,သူပုန်မ,,Kachin,Ethnic issue,Bamar
+15,အကြမ်းဖက်,,Rohingya/EAOs,AA,Bamar
+16,ဘင်ဂါလီ,,Rohingya,Muslim,Bamar
+17,တရုတ်ခေွး,,Chinese,COVID-19,Bamar
+18,လီးဆူး,,Lisu ,Ethnic issue,Bamar
+19,ဗမာေတွ,,Bamar,Ethnic issue,Bamar
+20,myen ni ,those Bamar,Bamar,Ethnic issue,jinghpaw
+21,yawyin,,Lisu,Ethnic issue,jinghpaw
+22,maru,,Lawwal,Ethnic issue,jinghpaw
+23, ေသာင်းကျမ်းသူ,,Kachin/KIA,Ethnic issue,Bamar
+24,ဘိန်းစား,,Kachin,Ethnic issue,Bamar
+25,မြေသြဇာ,,Tatmadaw,Military,Bamar
+26,သူခိုး,,General,General,Bamar
+27,လူရိုင်း ,barbarian,Lisu,Ethnic issue,Bamar
+28,sa wa,ugly dead,Bamar,Ethnic issue,jinghpaw
+29,banau,ngapi,Bamar,Ethnic issue,jinghpaw
+30,gwi,dog,Bamar,Ethnic issue,jinghpaw
+31,အပြုတ်တိုက်,to exterminate,KIA,Ethnic issue,Bamar
+32,ဖင်ယား,itchy butt,Activist,General,Bamar
+33,ကျောင်းနွား,cows,Student Activist,Activism,Bamar
+34,သူပုန်လော်ဘီ,rebel lobby,Journalist,Activism,Bamar
+35,နွားကျောင်းသား,student cows,Student Activist,Activism,Bamar
+36,တောသား ,jungle/rural people,Ethnic minority/Migrant workers,COVID-19,Bamar
+37,ဝူဟန်,Wuhan,Chinese,COVID-19,Bamar
+38,မြို့သား,city people,Migrant workers,COVID-19,Bamar
+39,မူဆလင်,,Muslim,Muslim,Bamar
+40,မူစလင်ကုလား,,Muslim,Muslim,Bamar
+41,ဗမာစစ်အာဏာရှင်အုပ်စု,,Government,Military,Bamar
+42,ကုလားပြည်နယ်,,Muslim,Muslim,
+43,လီးကြံ့ဖွတ်,,USDP,Political Party,
+44,ခွေးသား,,General,General,
+45,အစွန်းရောက်ရခိုင်,,Rakhine,AA,
+46,လူသားစိတ္ကင္းမဲ့,,General,General,
+47,ရခိုင်ကုလားတွေ,,Muslim,Muslim,
+48,မွတ်ကုလားတွေ,,Muslim,Muslim,
+49,စစ်သူခိုးကြံ့ဖွတ်,,Tatmadaw/USDP,Political Party,
+50,စစ်ဦးဘီလူး,,Tatmadaw,Military,
+51,ဖွတ်,,USDP,Political Party,
+52,အဖျက်သမားaa,,AA,AA,
+53,AAသူပုန်,,AA,AA,
+54,ဗမာအစောရနှင့်ဗမာစစ်တပ်,,Tatmadaw/Government,Military,
+55,စစ်အာဏာရှင်,,Tatmadaw/Government,Military,
+56,အမြစ်ပြတ်ရှင်း,,Rohingya,Muslim,
+57,ဘင်္ဂါလီ,,Rohingya,Muslim,
+58,ရွာသား,,Ethnic minority/Migrant workers,Ethnic issue,
+59,မွတ်ကုလား,,Muslim,Muslim,
+60,အခွင့်အရေးသမားကြံ့ဖွတ်,,USDP,Political Party,
+61,ကြံ့ဖွတ်သခိုး,,USDP,Political Party,
+62,မူဆလင်ကုလားတွေ,,Muslim,Muslim,
+63,ဗလီတွေ,,Muslim,Muslim,
+64,ခွေးဦးနှောက်,,General,General,
+65,ဗမာသောင်းကျမ်းသူ,,Tatmadaw,Military,
+66,မျိုးဖြုတ်,,Rohingya,Muslim,
+67,တရုတ်ခွေ,,Chinese,COVID-19,
+68,မွတ်,,Muslim,Muslim,
+69,ဖွတ္သူခုိး,,USDP,Political Party,
+70,အရိုးကိုက်ဖွတ်ခွေး,,USDP,Political Party,
+71,ရခွီး,,Rakhine,AA,
+72,နွားမြင့်,,General,General,
+73,မအေလိုးကြံ့ဖွတ်,,USDP,Political Party,
+74,ခွေးသူတောင်းစားခွေး,,General,General,
+75,ကြံ့ဖွတ်သူခိုးကောင်,,USDP,Political Party,
+76,ဗမာအစိုးရစစ်တပ်,,Tatmadaw,Military,
+77,အစွန်းရောက်,,General,General,
+78,အမျိုးယုတ်,,Ethnic minority,Ethnic issue,
+79,ကြံ့ဖွတ်,,USDP,Political Party,
+80,ဝူဟန်တရုတ်,,Chinese,COVID-19,
+81,ခွေးဝဲစား,,General,General,
+82,Thaiပြန်,,Migrant workers,COVID-19,
+83,စောက်တရုတ်,,Chinese,COVID-19,
+84,ရခိး,,Rakhine,AA,
+85,ခွေးသူတောင်းစားမီဒီညာ,,Journalist,Media,
+86,အာနာရူးတွေ,,Tatmadaw,Military,
+87,စောက်သုံးမကျအစိုးရ,,Government,Political Party,
+88,တရုပ်စုပ်,,Chinese,COVID-19,
+89,ခွေးတရုတ်,,Chinese,COVID-19,
+90,ရခိုင်နဲ့မပွေး,,Rakhine,AA,
+91,အောက်တန်းကြ,,Journalist,Media,
+92,ထမိန်ခြုံနဲ့ဘောမ,,NLD,Political Party,
+93,ငလူးပဲ,,General,General,
+94,အောက်တန်းစား,,Journalist,Media,
+95,ထောင်ထွက်,,Prisoner,COVID-19,
+96,အကြမ်းဖက်ကုလားတွေ,,Muslim,Muslim,
+97,ခွေးဝဲစားThaiပြန်,,Migrant workers,COVID-19,
+98,နီပိန်း,,NLD,Political Party,
+99,အစိမ်းရောင်ခွေး,,USDP,Political Party,
+100,ဒေါ်လာစား,,Activist/Journalist,Activism,
+101,မွတ်ပါတီ,,NLD,Political Party,
+102,ဖွတ်ပါတီ,,USDP,Political Party,
+103, ကြံ့ဖွတ်ပါတီ,,USDP,Political Party,
+104,ပြည်ခိုင်ဖြိုးသူခိုး,,USDP,Political Party,
+105,ငပွေး,,General,General,
+106,သုတ်ကြောင်မ,,Women,Women,
+107,ခိုးဝင်,,Migrant workers,COVID-19,
+108,ဗမာအကြမ်းဖက်,,Tatmadaw,Military,
+109,ထန်းတောသား,,Ethnic minority/Migrant workers,Ethnic issue,
+110,ဖာသေမစု,,NLD,Political Party,
+111,မွတ်ဒေါင်းခွေ,,NLD,Political Party,
+112,ထန်းတောသားတွေ,,Ethnic minority/Migrant workers,Ethnic issue,
+113,ရခိုင်အကြမ်းဖက်သမား,,Rakhine,AA,
+114,ဗမာသောင်းကြမ်းသူအဖွဲ့,,Tatmadaw,Military,
+115,အမျိုးယုတ်ရှမ်း,,Shan,Ethnic issue,
+116,ခွေးတပ်မတော်,,Tatmadaw,Military,
+117,တစ်မတ်သား,,Tatmadaw,Military,
+118,ရခိုင်သူပုန်aaအကြမ်းဖက်,,Rakhine,AA,
+119,အဆိပ်သားတွေ,,Tatmadaw,Military,
+120,ရခိုင်တပ်တော်AA,,Rakhine,AA,
+121,ရခိုင်အစွန်းရောက်,,Rakhine,AA,
+122,နယ်ချဲ့ဗမာအကြမ်းဖက်တပ်,,Tatmadaw,Military,
+123,ပြည်ထိုင်ခိုး,,Government,Political Party,
+124,အိမ်စောင့်ခွေး,,Tatmadaw,Military,
+125,ခွေးသတ်မတော်,,Tatmadaw,Military,
+126,မာဖီးယားအကြမ်းဖက်စစ်တပ်ထွက်,,Tatmadaw,Military,
+127,အနီကြောင်,,NLD,Political Party,
+128,သတ်မတော်,,Tatmadaw,Military,
+129,ငှက်ဆိုး,,NLD,Political Party,
+130,ထောင်ထွက်အစိုးရNLD,,NLD,Political Party,
+131,ဒီမိုခွေးတွေ,,NLD,Political Party,
+132,ကာပု,body shaming,Commander in Chief,Military,
+133,ငှက်စုန်းအစိုးရ,,NLD,NLD,
+134,ငှက်စုတ်,,NLD,Political Party,
+135,အဘဘောမ,Pro general,Pro Tatmadaw ,"Pro USDP, Pro Tatmadaw",
+136,ဖွတ်အမတ်,lizard or saying negative to USDP MPs ,USDP MPs ,Political Party,
+137,အမတ်ယုတ် ,Despicable MPs ,MPs ,Political Party,
+1,ငှက်နီ,red bird,NLD,Political Party,Bamar
+17,တရုတ်ခွေး,,Chinese,COVID-19,Bamar
+19,ဗမာတွေ,,Bamar,Ethnic issue,Bamar
+23,သောင်းကျမ်းသူ,,Kachin/KIA,Ethnic issue,Bamar
+46,လူသားစိတ်ကင်းမဲ့,,General,General,
+52,အဖျက်သမား aa,,AA,AA,
+53,AA သူပုန်,,AA,AA,
+54,ဗမာအစောရနဲ့ဗမာစစ်တပ်,,Tatmadaw/Government,Military,
+67,တရုတ်ခွေး,,Chinese,COVID-19,
+69,ဖွတ်သူခိုး,,USDP,Political Party,
+84,ရခီး,,Rakhine,AA,
+85,ခွေးသူတောင်းစားမီဒီယာ,,Journalist,Media,
+88,တရုတ်စုပ်,,Chinese,COVID-19,
+91,အောက်တန်းကျ,,Journalist,Media,
+93,ငလူး,,General,General,
+127,နီကြောင်,,NLD,Political Party,
+131,ဒီမိုခွေး,,NLD,Political Party,

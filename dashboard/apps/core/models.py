@@ -121,3 +121,18 @@ class TargetGroup(models.Model):
 			date=self.date,
 			count=self.count
 		)
+
+
+class Lexicon(models.Model):
+	label = models.CharField(max_length=100)
+	meaning = models.CharField(max_length=100)
+	# This typo is not a mistake, it is the header in Anna's CSV for lexicons
+	targetted_group = models.CharField(max_length=100)
+	type = models.CharField(max_length=100)
+	language = models.CharField(max_length=100)
+
+	def __str__(self):
+		return 'Lexicon: {label} was used to target {targetted_group}'.format(
+			label=self.label,
+			targetted_group=self.targetted_group
+		)
