@@ -102,6 +102,21 @@
 						<div class="chart-bar">
 							<canvas id="maliciousUsersChart"></canvas>
 						</div>
+						<p class="mb-4">
+							The graph shows the top 20 malicious users identified based on their maliciousness score.
+							The maliciousness score is a compound measure which takes into account the total number of
+							comments made, the number of hate speech comments made, the percentage of hate speech
+							comments and the influence in the network as measured by degree centrality and page rank.
+							For more information on the methodology, please click
+							<a
+								target="_blank"
+								class="btn-link"
+								href="{% url 'app:methodology' %}">
+								here
+							</a>.
+							To access a specific user's Facebook profile, please click on the corresponding bar. To see
+							the groups targeted by an individual user, please hover over their bar.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -109,9 +124,13 @@
 		<div class="row">
 			<div class="col-xl-6 col-lg-6 col-sm-6 col-md-6 col-mb-6">
 				<div class="card shadow mb-4">
-					<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">WordCloud</h6></div>
+					<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Hate speech expressions
+						most frequently used by malicious users</h6></div>
 					<div class="card-body">
 						<div id="my_dataviz"></div>
+						<p class="mb-4">
+							The trending hate speech expressions this week are A, B, and C, targeting X, Y, and Z.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -119,21 +138,27 @@
 				<!-- Targeted Groups Card -->
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
-						<h6 class="m-0 font-weight-bold text-primary">Targeted Groups</h6>
+						<h6 class="m-0 font-weight-bold text-primary">Groups targeted by malicious users in hate speech
+							comments</h6>
 					</div>
 					<div class="card-body">
-						{% for project in targeted_groups_data %}
-							<h4 class="small font-weight-bold">{{ project.group }}
-								<span class="float-right">{{ project.percentage }} %</span>
+						{% for group in targeted_groups_data %}
+							<h4 class="small font-weight-bold">{{ group.group }}
+								<span class="float-right">{{ group.percentage }} %</span>
 							</h4>
 							<div class="progress mb-4">
 								<div class="progress-bar"
 									 role="progressbar"
-									 style="width: {{ project.percentage }}%" aria-valuenow="{{ project.percentage }}"
+									 style="width: {{ group.percentage }}%" aria-valuenow="{{ group.percentage }}"
 									 aria-valuemin="0" aria-valuemax="100">
 								</div>
 							</div>
 						{% endfor %}
+						<p class="mb-4">
+							The most frequently targeted groups
+							are {{ targeted_groups_data.0.group }}, {{ targeted_groups_data.1.group }},
+							and {{ targeted_groups_data.3.group }}.
+						</p>
 					</div>
 				</div>
 			</div>
