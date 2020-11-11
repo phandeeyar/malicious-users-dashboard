@@ -5,7 +5,7 @@ from django.core.serializers import serialize
 from django.core.serializers.json import DjangoJSONEncoder
 from django.views import generic
 
-from dashboard.apps.core.models import DataWindow, MaliciousUser, WordCloud, TargetGroup
+from dashboard.apps.core.models import DataWindow, MaliciousUser, WordCloud, TargetGroup, Lexicon
 
 
 class IndexView(LoginRequiredMixin, generic.base.TemplateView):
@@ -56,9 +56,13 @@ class IndexView(LoginRequiredMixin, generic.base.TemplateView):
 		data_window_queryset = self.get_data_window_objects(date_range_lower, date_range_upper)
 		malicious_users_queryset = self.get_malicious_users(date_range_lower, date_range_upper)
 		context['targeted_groups_data'] = self.get_target_group_data(date_range_lower, date_range_upper)
+		word_cloud_data = self.get_word_cloud_data(date_range_lower, date_range_upper)
 		# Word Cloud Data
-		context['word_cloud_data'] = serialize('json', self.get_word_cloud_data(date_range_lower, date_range_upper),
+		context['word_cloud_data'] = serialize('json', word_cloud_data,
 											   cls=DjangoJSONEncoder)
+		context['lexicons'] = Lexicon.objects.filter(
+			label__in=word_cloud_data.order_by('-count')[:3].values_list(
+				'word', flat=True))
 		top_20_malicious_users = malicious_users_queryset.order_by('-malicious_score')[:20]
 		# Serialize data and send in context
 		top_20_malicious_users_ids = top_20_malicious_users.values_list('user_id', flat=True)

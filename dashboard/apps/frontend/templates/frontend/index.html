@@ -129,7 +129,10 @@
 					<div class="card-body">
 						<div id="my_dataviz"></div>
 						<p class="mb-4">
-							The trending hate speech expressions this week are A, B, and C, targeting X, Y, and Z.
+							The trending hate speech expressions this week
+							are <strong>{{ lexicons.0.label }}</strong>, <strong>x{{ lexicons.1.label }}</strong>, and <strong>{{ lexicons.2.label }}</strong>, targeting
+							<strong>{{ lexicons.0.targetted_group }}</strong>,
+							<strong>{{ lexicons.1.targetted_group }}</strong>, and <strong>{{ lexicons.2.targetted_group }}</strong>.
 						</p>
 					</div>
 				</div>
