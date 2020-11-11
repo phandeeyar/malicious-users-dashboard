@@ -58,8 +58,7 @@ class IndexView(LoginRequiredMixin, generic.base.TemplateView):
 		context['targeted_groups_data'] = self.get_target_group_data(date_range_lower, date_range_upper)
 		word_cloud_data = self.get_word_cloud_data(date_range_lower, date_range_upper)
 		# Word Cloud Data
-		context['word_cloud_data'] = serialize('json', word_cloud_data,
-											   cls=DjangoJSONEncoder)
+		context['word_cloud_data'] = serialize('json', word_cloud_data, cls=DjangoJSONEncoder)
 		context['lexicons'] = Lexicon.objects.filter(
 			label__in=word_cloud_data.order_by('-count')[:3].values_list(
 				'word', flat=True))
