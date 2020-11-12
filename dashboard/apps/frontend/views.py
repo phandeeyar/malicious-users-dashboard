@@ -67,13 +67,8 @@ class IndexView(LoginRequiredMixin, generic.base.TemplateView):
 		top_20_malicious_users_ids = top_20_malicious_users.values_list('user_id', flat=True)
 		comments_by_top_20_malicious_users = data_window_queryset.filter(
 			user_id__in=top_20_malicious_users_ids)
-		targeted_group_data = comments_by_top_20_malicious_users.exclude(targeted_group1__exact='').values(
-			'user_id',
-			'targeted_group1',
-			'targeted_group2',
-			'targeted_group3',
-			'targeted_group4'
-		)
+		groups_targeted_by_top_20 = comments_by_top_20_malicious_users.exclude(targeted_group1__exact='')
+		groups_targeted_by_top_20 = serialize('json', groups_targeted_by_top_20, cls=DjangoJSONEncoder)
 		top_20_malicious_users = serialize('json', top_20_malicious_users, cls=DjangoJSONEncoder)
 		context['top_20_malicious_users'] = top_20_malicious_users
 		# number of posts in the selected date range
@@ -87,6 +82,7 @@ class IndexView(LoginRequiredMixin, generic.base.TemplateView):
 			context['hate_speech_percent'] = 0
 
 		context['num_unique_users'] = len(data_window_queryset.distinct('profile_id'))
+		context['groups_targeted_by_top_20'] = groups_targeted_by_top_20
 
 		return context
 

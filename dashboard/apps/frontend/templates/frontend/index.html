@@ -107,14 +107,11 @@
 							The maliciousness score is a compound measure which takes into account the total number of
 							comments made, the number of hate speech comments made, the percentage of hate speech
 							comments and the influence in the network as measured by degree centrality and page rank.
-							For more information on the methodology, please click
-							<a
-								target="_blank"
-								class="btn-link"
-								href="{% url 'app:methodology' %}">
-								here
-							</a>.
-							To access a specific user's Facebook profile, please click on the corresponding bar. To see
+							For more information on the methodology, please click<a
+							target="_blank"
+							class="btn-link"
+							href="{% url 'app:methodology' %}"> here</a>. To access a specific user's Facebook profile,
+							please click on the corresponding bar. To see
 							the groups targeted by an individual user, please hover over their bar.
 						</p>
 					</div>
@@ -122,23 +119,6 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xl-6 col-lg-6 col-sm-6 col-md-6 col-mb-6">
-				<div class="card shadow mb-4">
-					<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Hate speech expressions
-						most frequently used by malicious users</h6></div>
-					<div class="card-body">
-						<div id="my_dataviz"></div>
-						<p class="mb-4">
-							The trending hate speech expressions this week
-							are <strong>{{ lexicons.0.label }}</strong>, <strong>x{{ lexicons.1.label }}</strong>, and
-							<strong>{{ lexicons.2.label }}</strong>, targeting
-							<strong>{{ lexicons.0.targetted_group }}</strong>,
-							<strong>{{ lexicons.1.targetted_group }}</strong>, and
-							<strong>{{ lexicons.2.targetted_group }}</strong>.
-						</p>
-					</div>
-				</div>
-			</div>
 			<div class="col-lg-6 mb-4">
 				<!-- Targeted Groups Card -->
 				<div class="card shadow mb-4">
@@ -162,7 +142,24 @@
 						<p class="mb-4">
 							The most frequently targeted groups
 							are {{ targeted_groups_data.0.group }}, {{ targeted_groups_data.1.group }},
-							and {{ targeted_groups_data.3.group }}.
+							and {{ targeted_groups_data.2.group }}.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-sm-6 col-md-6 col-mb-6">
+				<div class="card shadow mb-4">
+					<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Hate speech expressions
+						most frequently used by malicious users</h6></div>
+					<div class="card-body">
+						<div id="my_dataviz"></div>
+						<p class="mb-4">
+							The trending hate speech expressions this week
+							are <strong>{{ lexicons.0.label }}</strong>, <strong>x{{ lexicons.1.label }}</strong>, and
+							<strong>{{ lexicons.2.label }}</strong>, targeting
+							<strong>{{ lexicons.0.targetted_group }}</strong>,
+							<strong>{{ lexicons.1.targetted_group }}</strong>, and
+							<strong>{{ lexicons.2.targetted_group }}</strong>.
 						</p>
 					</div>
 				</div>
@@ -173,10 +170,24 @@
 
 {% block    additional_scripts %}
 	<script type="text/javascript">
+		{# To use context variables inside template	#}
 		let top20MostMaliciousUsers = {{ top_20_malicious_users | safe }}
 			top20MostMaliciousUsers = top20MostMaliciousUsers.map((user) => user.fields);
 		let word_cloud_data = {{ word_cloud_data | safe }}
 			word_cloud_data = word_cloud_data.map((word_data) => word_data.fields);
+		let groups_targeted_by_top_20 = {{ groups_targeted_by_top_20 | safe }}
+			groups_targeted_by_top_20 = groups_targeted_by_top_20.map((group_data) => group_data.fields);
+		{# Basically mapping groups targeted by a user to a targeted_groups array	#}
+		top20MostMaliciousUsers = top20MostMaliciousUsers.map((ele) => {
+			ele.comments = groups_targeted_by_top_20.filter((item) => item.user_id === ele.user_id);
+			ele.targeted_groups = Array.from(new Set(
+				ele.comments.map((comment) => [comment.targeted_group1, comment.targeted_group2, comment.targeted_group3, comment.targeted_group4])
+					// flatten the array
+					.flat()
+					// remove empty strings ""
+					.filter((item) => item !== '')));
+			return ele;
+		});
 	</script>
 	{# Contains cloud config #}
 	<script src="{% static 'vendor/sb-admin-2/js/demo/cloud.js' %}"></script>
