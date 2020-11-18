@@ -27,6 +27,7 @@
 - The database models are in `core/models.py`
 - All the front-end views are in `frontend/views.py`
 - The front-end for the dashboard comes from `frontend/templates/index.html`
+- The JavaScript for the charts is inside: `dashboard/static/vendor/sb-admin-2/js/demo`
 
 ### Adding to database
 
