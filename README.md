@@ -40,6 +40,10 @@
 - Currently, the file paths inside these commands are static (open core/management/commands) to see the commands
 - To run a command type `python manage.py migrate [command_name]` for example `python manage.py migrate add_data_window`
 
+## Add new user
+- To add new user, inside the shell from earlier, run `python manage.py createsuperuser`
+- This will prompt for username/email/password details.
+
 #### Gotchas:
 
 - Ensure that the headers of the csv files match that of the management commands
