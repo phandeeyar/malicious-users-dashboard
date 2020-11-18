@@ -5,7 +5,7 @@ import pandas as pd
 from dashboard.apps.core.utils import log
 
 
-def csv_to_model(path='dashboard/apps/core/management/commands/target_groups.csv'):
+def csv_to_model(path='dashboard/apps/core/management/commands/target_groups_w2_updated.csv'):
 	tmp_data = pd.read_csv(path, sep=',')
 	groups = []
 	for index in tmp_data.index:
@@ -21,10 +21,11 @@ def csv_to_model(path='dashboard/apps/core/management/commands/target_groups.csv
 					count=tmp_data['count'][index],
 					percentage=tmp_data['percentage'][index],
 					# Needs to be ISO datetime
-					date=datetime.fromisoformat(date),
+					date=datetime.strptime(date, '%d/%m/%Y').date(),
 				))
 			else:
-				log("csv_to_model", 'csv_to_model', "added without date {group}".format(group=tmp_data['group'][index]), file=__file__)
+				log("csv_to_model", 'csv_to_model', "added without date {group}".format(group=tmp_data['group'][index]),
+					file=__file__)
 				groups.append(TargetGroup(
 					group=tmp_data['group'][index],
 					count=tmp_data['count'][index],
@@ -35,6 +36,7 @@ def csv_to_model(path='dashboard/apps/core/management/commands/target_groups.csv
 
 class Command(BaseCommand):
 	help = 'Takes in targeted group data from CSV and adds it to DB'
+
 	# TODO: take in file path as an argument
 	def handle(self, *args, **kwargs):
 		csv_to_model()

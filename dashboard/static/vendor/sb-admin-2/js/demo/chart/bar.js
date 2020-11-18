@@ -44,9 +44,9 @@ const chartConfig = {
 			yAxes: [{
 				ticks: {
 					min: 0,
-					max: 50,
-					maxTicksLimit: 5,
-					padding: 10
+					max: 20,
+					maxTicksLimit: 10,
+					padding: 5
 				},
 				gridLines: {
 					color: 'rgb(234, 236, 244)',

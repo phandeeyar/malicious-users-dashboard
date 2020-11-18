@@ -12,7 +12,7 @@ def csv_to_model(path='dashboard/apps/core/management/commands/wordcloud_w1.csv'
 	for index in tmp_data.index:
 		date = None
 		try:
-			date = tmp_data['date'][index]
+			date = tmp_data['week'][index]
 		except KeyError:
 			log("csv_to_model", 'csv_to_model', "couldn't get date", file=__file__)
 		finally:
@@ -20,7 +20,8 @@ def csv_to_model(path='dashboard/apps/core/management/commands/wordcloud_w1.csv'
 				users.append(WordCloud(
 					word=tmp_data['word'][index],
 					count=tmp_data['count'][index],
-					date=datetime.fromisoformat(date),
+					date=datetime.strptime(date, '%d/%m/%Y').date()
+					# date=datetime.fromisoformat(date),
 				))
 			else:
 				users.append(WordCloud(

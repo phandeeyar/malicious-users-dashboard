@@ -5,14 +5,14 @@ from datetime import datetime
 from dashboard.apps.core.utils import log
 
 
-def csv_to_model(path='dashboard/apps/core/management/commands/malicioususers.csv'):
+def csv_to_model(path='dashboard/apps/core/management/commands/malicioususers_week1.csv'):
 	# TODO: make this path dynamic
 	tmp_data = pd.read_csv(path, sep=',')
 	users = []
 	for index in tmp_data.index:
 		date = None
 		try:
-			date = tmp_data['date'][index]
+			date = tmp_data['week'][index]
 		except KeyError:
 			log("csv_to_model", 'csv_to_model', "couldn't get date", file=__file__)
 		finally:
@@ -26,9 +26,9 @@ def csv_to_model(path='dashboard/apps/core/management/commands/malicioususers.cs
 					degree_centrality=tmp_data['degree_centrality'][index],
 					betweenness_centrality=tmp_data['betweenness_centrality'][index],
 					eigenvector_centrality=tmp_data['eigenvector_centrality'][index],
-					pagerank=tmp_data['pagerank'][index],
+					pagerank=tmp_data['page_rank'][index],
 					malicious_score=tmp_data['malicious_score'][index],
-					date=datetime.fromisoformat(date),
+					date=datetime.strptime(date, '%d/%m/%Y').date(),
 				))
 			else:
 				users.append(MaliciousUser(
@@ -40,7 +40,7 @@ def csv_to_model(path='dashboard/apps/core/management/commands/malicioususers.cs
 					degree_centrality=tmp_data['degree_centrality'][index],
 					betweenness_centrality=tmp_data['betweenness_centrality'][index],
 					eigenvector_centrality=tmp_data['eigenvector_centrality'][index],
-					pagerank=tmp_data['pagerank'][index],
+					pagerank=tmp_data['page_rank'][index],
 					malicious_score=tmp_data['malicious_score'][index]
 				))
 	MaliciousUser.objects.bulk_create(users)

@@ -30,11 +30,12 @@ def str_to_float(num):
 		return float(num)
 
 
-def _csv_to_model(path='dashboard/apps/core/management/commands/window(1).csv'):
+def _csv_to_model(path='dashboard/apps/core/management/commands/window_w1.csv'):
 	data_windows = []
 	with open(path, mode='r') as csv_file:
 		csv_reader = csv.DictReader(csv_file)
 		next(csv_reader)
+		count = 0
 		for row in csv_reader:
 			date = None
 			try:
@@ -81,11 +82,17 @@ def _csv_to_model(path='dashboard/apps/core/management/commands/window(1).csv'):
 					if row['comment_id'] is not None and row['comment_id'] != '':
 						data_window.comment_id = int(float(row['comment_id']))
 					if date is not None and date != '':
-						data_window.date = datetime.fromisoformat(date)
+						data_window.date = datetime.strptime(date, '%d/%m/%Y').date()
 					data_windows.append(data_window)
 				except Exception as e:
 					log("csv_to_model", 'csv_to_model', e, file=__file__)
 					raise
+				count += 1
+				if count == 500:
+					log("csv_to_model", 'csv_to_model', 'saved 500 items', file=__file__)
+					DataWindow.objects.bulk_create(data_windows)
+					data_windows = []
+					count = 0
 	DataWindow.objects.bulk_create(data_windows)
 
 
