@@ -47,16 +47,21 @@ class IndexView(LoginRequiredMixin, generic.base.TemplateView):
 		# 	date_range_upper = dtu
 
 		# set upper date range to be 7 days from start
+
 		if isinstance(date_range_lower, date):
 			date_range_upper = date_range_lower + timedelta(days=7)
 		else:
 			date_range_upper = datetime.strptime(date_range_lower, '%Y-%m-%d').date() + timedelta(days=7)
+
 		context["start_date"] = str(date_range_lower)
 		context["end_date"] = str(date_range_upper)
+		
+		# Make Database Queries
 		data_window_queryset = self.get_data_window_objects(date_range_lower, date_range_upper)
 		malicious_users_queryset = self.get_malicious_users(date_range_lower, date_range_upper)
 		context['targeted_groups_data'] = self.get_target_group_data(date_range_lower, date_range_upper)
 		word_cloud_data = self.get_word_cloud_data(date_range_lower, date_range_upper)
+
 		# Word Cloud Data
 		context['word_cloud_data'] = serialize('json', word_cloud_data, cls=DjangoJSONEncoder)
 		context['lexicons'] = Lexicon.objects.filter(
